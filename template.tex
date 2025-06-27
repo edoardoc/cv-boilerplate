@@ -105,11 +105,11 @@ $if(intro)$
 $intro$
 $endif$
 
-\subsection*{Areas of Interest}
-$if(skills)$
+\section*{Languages, Tools, APIs}
+$if(languages)$
 \begin{itemize}
-    $for(skills)$
-      \item $skills$
+    $for(languages)$
+      \item $languages$
     $endfor$
 \end{itemize}
 $endif$
@@ -118,12 +118,14 @@ $endif$
 
 \vspace{25pt}
 
-\section*{Previous Experience}
+\section*{Experience}
 \noindent
 $for(experience)$
 \note{$experience.years$}\textsc{$experience.employer$}\\
 \emph{$experience.job$}\\
-$experience.city$\\[.2cm]
+  $for(experience.description)$
+  $experience.description$\\
+  $endfor$[.2cm]
 $endfor$
 
 $if(education)$
@@ -135,11 +137,5 @@ $for(education)$
 $endfor$
 $endif$
 
-$if(languages)$
-\section*{Languages}
-$for(languages)$
-\emph{$languages.language$} ($languages.proficiency$)\\
-$endfor$
-$endif$
 
 \end{document}
