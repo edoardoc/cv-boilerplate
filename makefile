@@ -14,6 +14,6 @@ docker-image:
 	docker build -t $(IMAGE) .
 
 docker: docker-image
-	docker run --rm --platform linux/amd64 \
+	docker run --rm \
 	-v $(CURDIR):/data -w /data $(IMAGE) \
 	--template=template.tex --pdf-engine=xelatex -o output.pdf details.yml
