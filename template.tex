@@ -47,9 +47,17 @@ $endif$
 % \usepackage{xltxtra} % removed: not present in pandoc/latex image
 % converts LaTeX specials (quotes, dashes etc.) to Unicode
 \defaultfontfeatures{Mapping=tex-text}
-\setmainfont [Ligatures={Common}, Numbers={OldStyle}]{Terminus (TTF)}
-% Cool ampersand
-\newcommand{\amper}{{\fontspec[Scale=.95]{Terminus (TTF)}\selectfont\itshape\&}}
+\IfFontExistsTF{Terminus (TTF)}{%
+  \setmainfont [Ligatures={Common}, Numbers={OldStyle}]{Terminus (TTF)}%
+}{%
+  \setmainfont [Ligatures={Common}, Numbers={OldStyle}]{$mainfont$}%
+}
+% Cool ampersand (fallback if Terminus missing)
+\IfFontExistsTF{Terminus (TTF)}{%
+  \newcommand{\amper}{{\fontspec[Scale=.95]{Terminus (TTF)}\selectfont\itshape\&}}%
+}{%
+  \newcommand{\amper}{{\fontspec[Scale=.95]{$mainfont$}\selectfont\itshape\&}}%
+}
 
 % MARGIN NOTES
 %--------------------------------
