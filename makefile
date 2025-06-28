@@ -10,6 +10,8 @@ clean :
 	rm output.pdf
 
 .PHONY: docker
-docker:
-	docker run --rm --platform linux/amd64 \
-        -v $(CURDIR):/data -w /data pandoc/latex make
+	docker:
+		docker run --rm --platform linux/amd64 \
+		  -v $(CURDIR):/data -w /data \
+		  --entrypoint /bin/sh pandoc/latex \
+		  -c "make"
