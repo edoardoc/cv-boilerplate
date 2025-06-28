@@ -5,11 +5,15 @@ FLAGS = --pdf-engine=xelatex
 output.pdf : $(src)
 	$(TEX) $(filter-out $<,$^ ) -o $@ --template=$< $(FLAGS)
 
-.PHONY: clean docker
+IMAGE = cv-builder
+.PHONY: clean docker docker-image
 clean :
-	rm output.pdf
+	rm -f output.pdf
 
-docker:
+docker-image:
+	docker build -t $(IMAGE) .
+
+docker: docker-image
 	docker run --rm --platform linux/amd64 \
-    -v $(CURDIR):/data -w /data pandoc/latex \
-    details.yml -o output.pdf --template=template.tex --pdf-engine=xelatex
+	-v $(CURDIR):/data -w /data $(IMAGE) \
+	--template=template.tex --pdf-engine=xelatex -o output.pdf details.yml

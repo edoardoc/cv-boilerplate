@@ -71,14 +71,14 @@ Although I didn't test it, you can probably use this on Windows, too. Both [Pand
 
 ### Using Docker
 
-If you have Docker installed, you can build the CV inside a container that already includes
-Pandoc and the required XeLaTeX packages. On ARM/M1 machines, you may need to pull the amd64 image:
+If you have Docker installed, there’s a provided `Dockerfile` that builds an image with Pandoc and
+XeLaTeX + required packages. Simply run:
 
-    docker run --rm --platform linux/amd64 \
-        -v $(pwd):/data -w /data pandoc/latex \
-        details.yml -o output.pdf --template=template.tex --pdf-engine=xelatex
+    docker build -t cv-builder .
+    docker run --rm -v $(pwd):/data -w /data cv-builder \
+      details.yml -o output.pdf --template=template.tex --pdf-engine=xelatex
 
-Alternatively, after adding the `docker` target to the Makefile, just run:
+Or just use the Makefile shortcut:
 
     make docker
 
