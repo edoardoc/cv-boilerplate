@@ -42,22 +42,11 @@ $endif$
 
 % TYPOGRAPHY
 %--------------------------------
-\usepackage{fontspec} 
-% \usepackage{xunicode}  % removed to avoid ucs/Greek encoding errors
-% \usepackage{xltxtra} % removed: not present in pandoc/latex image
-% converts LaTeX specials (quotes, dashes etc.) to Unicode
-\defaultfontfeatures{Mapping=tex-text}
-\IfFontExistsTF{Terminus (TTF)}{%
-  \setmainfont [Ligatures={Common}, Numbers={OldStyle}]{Terminus (TTF)}%
-}{%
-  \setmainfont [Ligatures={Common}, Numbers={OldStyle}]{$mainfont$}%
-}
-% Cool ampersand (fallback if Terminus missing)
-\IfFontExistsTF{Terminus (TTF)}{%
-  \newcommand{\amper}{{\fontspec[Scale=.95]{Terminus (TTF)}\selectfont\itshape\&}}%
-}{%
-  \newcommand{\amper}{{\fontspec[Scale=.95]{$mainfont$}\selectfont\itshape\&}}%
-}
+\usepackage{fontspec}
+% Page-specific font macros (use standard LaTeX families)
+\newcommand\pageonefont{\sffamily}
+\newcommand\pagetwofont{\rmfamily}
+\newcommand\pagethreefont{\ttfamily}
 
 % MARGIN NOTES
 %--------------------------------
@@ -95,6 +84,8 @@ $endif$
 % DOCUMENT
 %--------------------------------
 \begin{document}
+
+\pageonefont
 
 {\LARGE $name$}\\[.2cm]
 
@@ -136,6 +127,9 @@ $endif$
 
 % \vfill
 
+\pagetwofont
+\newpage
+
 \vspace{25pt}
 
 \section*{Experience}
@@ -147,6 +141,9 @@ $for(experience)$
   $experience.description$\\
   $endfor$[.2cm]
 $endfor$
+
+\pagethreefont
+\newpage
 
 $if(education)$
 \section*{Education}

@@ -1,0 +1,204 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[10pt, a4paper]{article}
+
+% LAYOUT
+%--------------------------------
+% Margins
+\usepackage{geometry} 
+\geometry{a4paper, left=35mm, right=35mm, top=51mm, bottom=17mm}
+
+% Do not indent paragraphs
+\setlength\parindent{0in}
+
+% Enable multicolumns
+\usepackage{multicol}
+\setlength{\columnsep}{-3.5cm}
+
+% Suppress page numbers
+\pagenumbering{gobble}
+
+% Header & Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Edoardo Ceccarelli}}
+\fancyhead[R]{\small%
+  Athens · Greece%
+  · +30 6948638319%
+   · \href{http://github.com/edoardoc}{github.com/edoardoc} · \href{http://stackoverflow.com/users/436085/edoardo}{stackoverflow.com/users/436085/edoardo} · \href{http://linkedin.com/in/edoardoc}{linkedin.com/in/edoardoc}%
+}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[C]{\scriptsize\textit{``Code is like humor. When you have to explain it, it's bad.''}}
+
+% Language setup for XeLaTeX
+%--------------------------------
+\usepackage{polyglossia}
+\setmainlanguage{british}
+
+% TYPOGRAPHY
+%--------------------------------
+\usepackage{fontspec}
+% Page-specific font macros (use standard LaTeX families)
+\newcommand\pageonefont{\sffamily}
+\newcommand\pagetwofont{\rmfamily}
+\newcommand\pagethreefont{\ttfamily}
+
+% MARGIN NOTES
+%--------------------------------
+\usepackage{marginnote}
+\newcommand{\note}[1]{\marginnote{\scriptsize #1}}
+\renewcommand*{\raggedleftmarginnote}{}
+\setlength{\marginparsep}{7pt}
+\reversemarginpar
+
+% HEADINGS
+%--------------------------------
+\usepackage{sectsty} 
+% Removed ulem: not needed
+% \usepackage[normalem]{ulem}  % removed: not needed
+\sectionfont{\rmfamily\mdseries} 
+\subsectionfont{\rmfamily\mdseries\scshape\normalsize} 
+\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize} 
+
+% PDF SETUP
+%--------------------------------
+\usepackage{hyperref}
+\hypersetup
+{
+  pdfauthor={Edoardo Ceccarelli},
+  pdfsubject={Edoardo Ceccarelli's CV},
+  pdftitle={Edoardo Ceccarelli's CV},
+  colorlinks, breaklinks, xetex, bookmarks,
+  filecolor=black,
+  urlcolor=[rgb]{0.117,0.682,0.858},
+  linkcolor=[rgb]{0.117,0.682,0.858},
+  linkcolor=[rgb]{0.117,0.682,0.858},
+  citecolor=[rgb]{0.117,0.682,0.858}
+}
+
+% DOCUMENT
+%--------------------------------
+\begin{document}
+
+\pageonefont
+
+{\LARGE Edoardo Ceccarelli}\\[.2cm]
+
+\begin{multicols}{2}
+
+Athens\\
+Greece\\
+
+\vspace{-10pt}
+
++30 6948638319\\
+\href{mailto:ridleys@gmail.com}{ridleys@gmail.com}\\
+
+
+\columnbreak
+
+\href{http://github.com/edoardoc}{github.com/edoardoc}\\
+\href{http://stackoverflow.com/users/436085/edoardo}{stackoverflow.com/users/436085/edoardo}\\
+\href{http://linkedin.com/in/edoardoc}{linkedin.com/in/edoardoc}\\
+\end{multicols}
+
+\vspace{30pt}
+
+Software Engineer with 20+ years experience specialising in server side
+stacks
+
+\section*{Languages, Tools, APIs}
+\noindent{\small%
+English (fluent), C, C++, Objective C, Java, Go, Dart, React
+Native, Javascript, SQL - Row Level
+Security, Git, Bash, Xcode, macOS, Linux, VS
+Code, Docker, Maven, PostgreSQL, MySQL, SQLite, Flutter, Eclipse, GraphQL, PostGraphile, XML, JSON, SOAP, XSD, WSDL, WebSockets, facebook
+Graph API
+}%
+
+% \vfill
+
+\pagetwofont
+\newpage
+
+\vspace{25pt}
+
+\section*{Experience}
+\noindent
+\note{2022--2023}\textsc{RealVNC}\\
+\emph{Full Stack Software Engineer}\\
+    Developed a Go backend and Vue3 frontend of Rport, open source
+remote management solution: various API upgrades and new endpoint
+features; unit testing; code reviews; database migrations; Github
+actions builds and testing; OpenAPI documentation\\
+    Developed Windows signed MSI client installation package, with
+upgrade and uninstall simulations\\
+    Participated in the design and development of the project's SaaS
+architecture. Actively engaged in various meetings and collaborated with
+cross-functional teams throughout the process\\
+  [.2cm]
+\note{2021--2022}\textsc{Learnlight}\\
+\emph{Senior Software Engineer}\\
+    Responsible for development, testing and maintenance of a db sync
+procedure (PostgreSQL with RLS)\\
+    Responsibility of a b2b analytics application for the e-learning
+managers, it was written in Node.js (Typescript + Javascript) querying a
+PostgreSQL RLS backend in GraphQL - responding to business and
+stakeholders requests, overlooking deployments (Jenkins), developing and
+deploying new features\\
+    Engineered a cloud native version of the entire stack, providing a
+secure sandbox environment for development of new features, slow queries
+search and performance testing\\
+  [.2cm]
+\note{2019--2021}\textsc{Freelance}\\
+\emph{Full Stack Mobile Engineer}\\
+    Coded a Facebook messenger chatbot MVP template, using Node.js (for
+the BOT's), golang (for the data layer with gRPC) and PostgreSQL - all
+containerised (Docker) - this was applied to two clients\\
+    Developed a classified ads Flutter mobile app, Figma specs, native
+look and feel: iOS and Android\\
+    Designed and developed an iOS Twitter client in Objective C, caching
+of Twitter API and a Go server architecture to receive remote logging
+from the devices\\
+  [.2cm]
+\note{2012--2018}\textsc{PortaPortese}\\
+\emph{Backend Software Engineer}\\
+    Managed 20+ data integration partners with a data exchange framework
+written in Go and Java\\
+    API layer in JAX-WS serving: websites, mobile apps and data
+integration partners (REST + SOAP)\\
+    Implemented a Docker architecture for a legacy backend, breaking it
+down into containers and reducing maintenance costs by up to 50\%\\
+  [.2cm]
+\note{2006--2011}\textsc{PortaPortese}\\
+\emph{Full Stack Software Engineer}\\
+    Designed, created and maintained a classified media portal, a Java
+Web Application with proprietary payment system, image server with
+caching, pre-cloud era running on 2 front end servers + 3 back end
+servers for a web application serving 900.000 unique visitors per month
+(\textasciitilde{} 50M page views)\\
+    Coded an in-application PostgreSQL db replication system to achieve
+200.000+ simultaneous sessions\\
+  [.2cm]
+\note{1997--2005}\textsc{various clients}\\
+\emph{Software Engineer, IT Consultant}\\
+    Responsible for the development of a CRM/OMS in the pharmaceutical
+field\\
+    Developed various e-commerce Java web applications frameworks in
+Java, ER database design\\
+  [.2cm]
+
+\pagethreefont
+\newpage
+
+\section*{Education}
+\noindent
+\note{1993--1996}\textbf{Bachelor Degree in Computer Science and
+Automation Engineering}\\
+\emph{``La Sapienza'' University of Rome}\\[.2cm]
+
+
+\end{document}
