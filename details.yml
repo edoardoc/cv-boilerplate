@@ -96,6 +96,6 @@ languages:
 # Settings
 mainfont: Hoefler Text
 fontsize: 10pt
-lang: en-GB
+lang: british
 geometry: a4paper, left=35mm, right=35mm, top=51mm, bottom=17mm
 ---

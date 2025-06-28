@@ -50,7 +50,7 @@ With this method, you can keep your entire CV encoded in a single YAML file, put
 
 ## Dependencies
 
-1. LaTeX with the following extra packages: `fontspec` `geometry` `multicol` `xunicode` `xltxtra` `marginnote` `sectsty` `ulem` `hyperref` `polyglossia`
+1. LaTeX with the following extra packages: `fontspec` `geometry` `multicol` `xunicode` `xltxtra` `marginnote` `sectsty` `ulem` `hyperref`
 2. [Pandoc](http://pandoc.org/), the universal document converter.
 
 I highly recommend [TinyTeX](https://yihui.org/tinytex/) as LaTeX distribution. All additional packages can be installed with `tlmgr` as needed.
@@ -75,9 +75,8 @@ If you have Docker installed, you can build the CV inside a container that alrea
 Pandoc and the required XeLaTeX packages. On ARM/M1 machines, you may need to pull the amd64 image:
 
     docker run --rm --platform linux/amd64 \
-        -v $(pwd):/data -w /data \
-        --entrypoint /bin/sh pandoc/latex \
-        -c "make"
+        -v $(pwd):/data -w /data pandoc/latex \
+        details.yml -o output.pdf --template=template.tex --pdf-engine=xelatex
 
 Alternatively, after adding the `docker` target to the Makefile, just run:
 
@@ -87,7 +86,7 @@ Alternatively, after adding the `docker` target to the Makefile, just run:
 
 - **`mainfont`**: Hoefler Text is the default, but every font installed on your system should work out of the box thanks to XeTeX.
 - **`fontsize`**: Possible values here are 10pt, 11pt and 12pt.
-- **`lang`**: Sets the main language through the `polyglossia` package. This is important for proper hyphenation, among other things.
+- **`lang`**: Sets the main language through the `babel` package. This is important for proper hyphenation, among other things.
 - **`geometry`**: A string that sets the margins through `geometry`. Read [this](https://www.sharelatex.com/learn/Page_size_and_margins) to learn how this package works.
 
 ## Recommended readings

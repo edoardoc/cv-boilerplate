@@ -11,6 +11,5 @@ clean :
 
 docker:
 	docker run --rm --platform linux/amd64 \
-    -v $(CURDIR):/data -w /data \
-    --entrypoint /bin/sh pandoc/latex \
-    -c "make"
+    -v $(CURDIR):/data -w /data pandoc/latex \
+    details.yml -o output.pdf --template=template.tex --pdf-engine=xelatex
