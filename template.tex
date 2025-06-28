@@ -16,8 +16,18 @@
 \usepackage{multicol}
 \setlength{\columnsep}{-3.5cm}
 
-% Uncomment to suppress page numbers
-% \pagenumbering{gobble}
+% Suppress page numbers
+\pagenumbering{gobble}
+
+% Header & Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{$name$}}
+\fancyhead[R]{\small $for(address)$$address$$sep$ \quad $endfor$}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[C]{\scriptsize\textit{``Code is like humor. When you have to explain it, it's bad.''}}
 
 % LANGUAGE
 %--------------------------------
@@ -107,11 +117,9 @@ $endif$
 
 \section*{Languages, Tools, APIs}
 $if(languages)$
-\begin{itemize}
-    $for(languages)$
-      \item $languages$
-    $endfor$
-\end{itemize}
+\noindent{\small%
+$for(languages)$$languages$$sep$, $endfor$
+}%
 $endif$
 
 % \vfill
