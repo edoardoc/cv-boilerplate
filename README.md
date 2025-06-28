@@ -69,6 +69,17 @@ Although I didn't test it, you can probably use this on Windows, too. Both [Pand
 
     pandoc details.yml -o output.pdf --template=template.tex --pdf-engine=xelatex
 
+### Using Docker
+
+If you have Docker installed, you can build the CV inside a container that already includes
+Pandoc and the required XeLaTeX packages:
+
+    docker run --rm -v $(pwd):/data -w /data pandoc/latex make
+
+Alternatively, after adding the `docker` target to the Makefile, just run:
+
+    make docker
+
 ## Available settings
 
 - **`mainfont`**: Hoefler Text is the default, but every font installed on your system should work out of the box thanks to XeTeX.

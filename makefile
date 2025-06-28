@@ -5,6 +5,10 @@ FLAGS = --pdf-engine=xelatex
 output.pdf : $(src)
 	$(TEX) $(filter-out $<,$^ ) -o $@ --template=$< $(FLAGS)
 
-.PHONY: clean
+.PHONY: clean docker
 clean :
 	rm output.pdf
+
+.PHONY: docker
+docker:
+	docker run --rm -v $(CURDIR):/data -w /data pandoc/latex make
