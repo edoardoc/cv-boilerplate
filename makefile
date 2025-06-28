@@ -11,4 +11,5 @@ clean :
 
 .PHONY: docker
 docker:
-	docker run --rm -v $(CURDIR):/data -w /data pandoc/latex make
+	docker run --rm --platform linux/amd64 \
+        -v $(CURDIR):/data -w /data pandoc/latex make

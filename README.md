@@ -72,9 +72,10 @@ Although I didn't test it, you can probably use this on Windows, too. Both [Pand
 ### Using Docker
 
 If you have Docker installed, you can build the CV inside a container that already includes
-Pandoc and the required XeLaTeX packages:
+Pandoc and the required XeLaTeX packages. On ARM/M1 machines, you may need to pull the amd64 image:
 
-    docker run --rm -v $(pwd):/data -w /data pandoc/latex make
+    docker run --rm --platform linux/amd64 \
+        -v $(pwd):/data -w /data pandoc/latex make
 
 Alternatively, after adding the `docker` target to the Makefile, just run:
 
