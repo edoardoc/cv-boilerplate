@@ -11,6 +11,8 @@ RUN apt-get update \
     texlive-fonts-extra \
     texlive-lang-english \
     texlive-lang-greek \
+    fonts-texgyre \
+    fonts-lmodern \
  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /data

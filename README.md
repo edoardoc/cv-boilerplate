@@ -50,7 +50,7 @@ With this method, you can keep your entire CV encoded in a single YAML file, put
 
 ## Dependencies
 
-1. LaTeX with the following extra packages: `fontspec` `geometry` `multicol` `xunicode` `xltxtra` `marginnote` `sectsty` `ulem` `hyperref`
+1. LaTeX with the following extra packages: `fontspec` `geometry` `multicol` `xunicode` `marginnote` `sectsty` `ulem` `hyperref`
 2. [Pandoc](http://pandoc.org/), the universal document converter.
 
 I highly recommend [TinyTeX](https://yihui.org/tinytex/) as LaTeX distribution. All additional packages can be installed with `tlmgr` as needed.
