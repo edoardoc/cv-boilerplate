@@ -5,6 +5,15 @@ FLAGS = --pdf-engine=xelatex
 output.pdf : $(src)
 	$(TEX) $(filter-out $<,$^ ) -o $@ --template=$< $(FLAGS)
 
-.PHONY: clean
+IMAGE = cv-builder
+.PHONY: clean docker docker-image
 clean :
-	rm output.pdf
+	rm -f output.pdf
+
+docker-image:
+	docker build -t $(IMAGE) .
+
+docker: docker-image
+	docker run --rm \
+	-v $(CURDIR):/data -w /data $(IMAGE) \
+	--template=template.tex --pdf-engine=xelatex -o output.pdf details.yml

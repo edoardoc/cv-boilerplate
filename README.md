@@ -50,7 +50,7 @@ With this method, you can keep your entire CV encoded in a single YAML file, put
 
 ## Dependencies
 
-1. LaTeX with the following extra packages: `fontspec` `geometry` `multicol` `xunicode` `xltxtra` `marginnote` `sectsty` `ulem` `hyperref` `polyglossia`
+1. LaTeX with the following extra packages: `fontspec` `geometry` `multicol` `xunicode` `marginnote` `sectsty` `hyperref`
 2. [Pandoc](http://pandoc.org/), the universal document converter.
 
 I highly recommend [TinyTeX](https://yihui.org/tinytex/) as LaTeX distribution. All additional packages can be installed with `tlmgr` as needed.
@@ -69,11 +69,24 @@ Although I didn't test it, you can probably use this on Windows, too. Both [Pand
 
     pandoc details.yml -o output.pdf --template=template.tex --pdf-engine=xelatex
 
+### Using Docker
+
+If you have Docker installed, there’s a provided `Dockerfile` that builds an image with Pandoc and
+XeLaTeX + required packages. Simply run:
+
+    docker build -t cv-builder .
+    docker run --rm -v $(pwd):/data -w /data cv-builder \
+      details.yml -o output.pdf --template=template.tex --pdf-engine=xelatex
+
+Or just use the Makefile shortcut:
+
+    make docker
+
 ## Available settings
 
 - **`mainfont`**: Hoefler Text is the default, but every font installed on your system should work out of the box thanks to XeTeX.
 - **`fontsize`**: Possible values here are 10pt, 11pt and 12pt.
-- **`lang`**: Sets the main language through the `polyglossia` package. This is important for proper hyphenation, among other things.
+- **`lang`**: Sets the main language through the `babel` package. This is important for proper hyphenation, among other things.
 - **`geometry`**: A string that sets the margins through `geometry`. Read [this](https://www.sharelatex.com/learn/Page_size_and_margins) to learn how this package works.
 
 ## Recommended readings
