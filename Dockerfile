@@ -15,7 +15,9 @@ RUN apt-get update \
     fonts-lmodern \
     fonts-terminus \
     fonts-cmu \
+    entr \
  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /data
 ENTRYPOINT ["pandoc"]
+CMD ["bash"]
