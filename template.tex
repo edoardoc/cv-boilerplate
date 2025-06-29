@@ -6,7 +6,7 @@
 % LAYOUT
 %--------------------------------
 % Margins
-\usepackage{geometry} 
+\usepackage{geometry}
 \geometry{$geometry$}
 
 % Do not indent paragraphs
@@ -42,22 +42,11 @@ $endif$
 
 % TYPOGRAPHY
 %--------------------------------
-\usepackage{fontspec} 
+\usepackage{fontspec}
 % \usepackage{xunicode}  % removed to avoid ucs/Greek encoding errors
 % \usepackage{xltxtra} % removed: not present in pandoc/latex image
 % converts LaTeX specials (quotes, dashes etc.) to Unicode
 \defaultfontfeatures{Mapping=tex-text}
-\IfFontExistsTF{Terminus (TTF)}{%
-  \setmainfont [Ligatures={Common}, Numbers={OldStyle}]{Terminus (TTF)}%
-}{%
-  \setmainfont [Ligatures={Common}, Numbers={OldStyle}]{$mainfont$}%
-}
-% Cool ampersand (fallback if Terminus missing)
-\IfFontExistsTF{Terminus (TTF)}{%
-  \newcommand{\amper}{{\fontspec[Scale=.95]{Terminus (TTF)}\selectfont\itshape\&}}%
-}{%
-  \newcommand{\amper}{{\fontspec[Scale=.95]{$mainfont$}\selectfont\itshape\&}}%
-}
 
 % MARGIN NOTES
 %--------------------------------
@@ -69,12 +58,12 @@ $endif$
 
 % HEADINGS
 %--------------------------------
-\usepackage{sectsty} 
+\usepackage{sectsty}
 % Removed ulem: not needed
 % \usepackage[normalem]{ulem}  % removed: not needed
-\sectionfont{\rmfamily\mdseries} 
-\subsectionfont{\rmfamily\mdseries\scshape\normalsize} 
-\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize} 
+\sectionfont{\rmfamily\mdseries}
+\subsectionfont{\rmfamily\mdseries\scshape\normalsize}
+\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
 
 % PDF SETUP
 %--------------------------------

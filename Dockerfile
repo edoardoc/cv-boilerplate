@@ -14,6 +14,7 @@ RUN apt-get update \
     fonts-texgyre \
     fonts-lmodern \
     fonts-terminus \
+    fonts-cmu \
  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /data

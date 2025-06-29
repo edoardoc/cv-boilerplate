@@ -10,7 +10,11 @@ urls:
   - stackoverflow.com/users/436085/edoardo
   - linkedin.com/in/edoardoc
 
-intro: "Software Engineer with 20+ years experience specialising in server side stacks"
+intro: |
+  Software Engineer with 20+ years of hands-on experience architecting and building scalable server-side systems.
+  Deep expertise in Go, Java, and cloud-native microservices, with strong background in remote management (Rport) and e-learning analytics.
+  Proven ability to drive end-to-end development: from CI/CD pipelines to production deployment and monitoring.
+  Passionate about automation, open-source collaboration, and delivering measurable business impact.
 
 experience:
   - years: 2022--2023
@@ -48,53 +52,81 @@ experience:
       - "Designed, created and maintained a classified media portal, a Java Web Application with proprietary payment system, image server with caching, pre-cloud era running on 2 front end servers + 3 back end servers for a web application serving 900.000 unique visitors per month (~ 50M page views)"
       - "Coded an in-application PostgreSQL db replication system to achieve 200.000+ simultaneous sessions"
   - years: 1997--2005
-    employer: various clients
-    job: Software Engineer, IT Consultant
+    employer: Various Clients
+    job: Software Engineer / IT Consultant
     description:
-      - "Responsible for the development of a CRM/OMS in the pharmaceutical field"
-      - "Developed various e-commerce Java web applications frameworks in Java, ER database design"
+      - "Consulted on CRM/OMS development for the pharmaceutical field and delivered e-commerce Java web application frameworks with custom ER database designs."
 
 education:
   - year: 1993--1996
     subject: Bachelor Degree in Computer Science and Automation Engineering
     institute: "\"La Sapienza\" University of Rome"
 
-languages:
-  - English (fluent)
-  - C
-  - C++
-  - Objective C
-  - Java
-  - Go
-  - Dart
-  - React Native
-  - Javascript
-  - SQL - Row Level Security
-  - Git
-  - Bash
-  - Xcode
-  - macOS
-  - Linux
-  - VS Code
-  - Docker
-  - Maven
-  - PostgreSQL
-  - MySQL
-  - SQLite
-  - Flutter
-  - Eclipse
-  - GraphQL
-  - PostGraphile
-  - XML
-  - JSON
-  - SOAP
-  - XSD
-  - WSDL
-  - WebSockets
-  - facebook Graph API
+# Technical skills, selected projects, and certifications
+skills:
+  languages:
+    - English (fluent)
+    - C
+    - C++
+    - Objective C
+    - Java
+    - Go
+    - Dart
+    - JavaScript/TypeScript
+  frameworks:
+    - Vue3
+    - React Native
+    - Flutter
+    - Node.js
+    - JAX-WS
+  databases:
+    - PostgreSQL (RLS)
+    - MySQL
+    - SQLite
+  apis:
+    - GraphQL
+    - PostGraphile
+    - REST
+    - SOAP
+    - WebSockets
+    - JSON
+    - XML
+    - XSD
+    - WSDL
+    - Facebook Graph API
+  tools:
+    - Docker
+    - Git
+    - Bash
+    - Jenkins
+    - Maven
+    - Xcode
+    - VS Code
+    - Eclipse
+  platforms:
+    - macOS
+    - Linux
 
+projects:
+  - title: Rport (RealVNC)
+    url: https://github.com/realvnc/rport
+    description:
+      - "Enhanced Go backend and Vue3 frontend: API upgrades, new endpoint features, unit testing, database migrations, and GitHub Actions CI/CD."
+      - "Authored comprehensive OpenAPI documentation and collaborated on SaaS architecture design."
+  - title: Messenger Chatbot Template
+    url: https://github.com/edoardoc/chatbot-template
+    description:
+      - "Developed a Facebook Messenger chatbot MVP using Node.js for bots, Go (gRPC) for backend services, and PostgreSQL; containerized with Docker for rapid deployment across two clients."
+  - title: Classified Ads Flutter App
+    url: https://github.com/edoardoc/classified-ads-flutter
+    description:
+      - "Built a cross-platform mobile application in Flutter from Figma specifications, delivering native UX on iOS and Android with offline caching support."
+
+certifications:
+  - AWS Certified Solutions Architect – Associate
+  - Google Cloud Professional Cloud Architect
 # Settings
-mainfont: "TeX Gyre Termes"
+mainfont: "CMU Sans Serif"
 fontsize: 10pt
 lang: british
 geometry: a4paper, left=35mm, right=35mm, top=51mm, bottom=17mm
