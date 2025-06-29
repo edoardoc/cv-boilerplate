@@ -47,13 +47,14 @@ $endif$
 % \usepackage{xltxtra} % removed: not present in pandoc/latex image
 % converts LaTeX specials (quotes, dashes etc.) to Unicode
 \defaultfontfeatures{Mapping=tex-text}
+\setmainfont{CMU Sans Serif}
+% (Removed SKILL CLOUD macros)
 
 % MARGIN NOTES
 %--------------------------------
 \usepackage{marginnote}
 \newcommand{\note}[1]{\marginnote{\scriptsize #1}}
 \renewcommand*{\raggedleftmarginnote}{}
-\setlength{\marginparsep}{7pt}
 \reversemarginpar
 
 % HEADINGS
@@ -80,6 +81,7 @@ $endif$
   linkcolor=[rgb]{0.117,0.682,0.858},
   citecolor=[rgb]{0.117,0.682,0.858}
 }
+% removed external tagcloud package; using custom macro for skill cloud
 
 % DOCUMENT
 %--------------------------------
@@ -112,16 +114,22 @@ $endif$
 
 \vspace{30pt}
 
-$if(intro)$
-$intro$
+% optional spoken languages section
+$if(spoken_languages)$
+\section*{Spoken Languages}
+\noindent
+$for(spoken_languages)$$spoken_languages$$sep$, $endfor$
+\vspace{20pt}
 $endif$
 
-\section*{Languages, Tools, APIs}
-$if(languages)$
-\noindent{\small%
-$for(languages)$$languages$$sep$, $endfor$
-}%
-$endif$
+\section*{Technical Skills}
+\noindent
+\textbf{Languages:} $for(skills.languages)$$skills.languages$$sep$, $endfor$\\[6pt]
+\textbf{Frameworks:} $for(skills.frameworks)$$skills.frameworks$$sep$, $endfor$\\[6pt]
+\textbf{Databases:} $for(skills.databases)$$skills.databases$$sep$, $endfor$\\[6pt]
+\textbf{APIs:} $for(skills.apis)$$skills.apis$$sep$, $endfor$\\[6pt]
+\textbf{Tools:} $for(skills.tools)$$skills.tools$$sep$, $endfor$\\[6pt]
+\textbf{Platforms:} $for(skills.platforms)$$skills.platforms$$sep$, $endfor$
 
 % \vfill
 
@@ -131,18 +139,18 @@ $endif$
 \noindent
 $for(experience)$
 \note{$experience.years$}\textsc{$experience.employer$}\\
-\emph{$experience.job$}\\
+  \emph{$experience.job$}\\
   $for(experience.description)$
-  $experience.description$\\
-  $endfor$[.2cm]
+    $experience.description$\\
+  $endfor$\\[.2cm]
 $endfor$
 
 $if(education)$
 \section*{Education}
 \noindent
 $for(education)$
-\note{$education.year$}\textbf{$education.subject$}$if(education.degree)$, $education.degree$$endif$\\
-\emph{$education.institute$}$if(education.city)$, $education.city$$endif$\\[.2cm]
+  \textbf{$education.year$}\quad \textbf{$education.subject$}$if(education.degree)$, $education.degree$$endif$\\
+  \emph{$education.institute$}$if(education.city)$, $education.city$$endif$\\[.2cm]
 $endfor$
 $endif$
 

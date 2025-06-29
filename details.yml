@@ -62,10 +62,13 @@ education:
     subject: Bachelor Degree in Computer Science and Automation Engineering
     institute: "\"La Sapienza\" University of Rome"
 
+# Spoken (human) languages
+spoken_languages:
+  - English (fluent)
+
 # Technical skills, selected projects, and certifications
 skills:
   languages:
-    - English (fluent)
     - C
     - C++
     - Objective C
@@ -126,8 +129,8 @@ certifications:
   - AWS Certified Solutions Architect – Associate
   - Google Cloud Professional Cloud Architect
 # Settings
-mainfont: "CMU Sans Serif"
+mainfont: "Computer Modern Sans"
 fontsize: 10pt
 lang: british
-geometry: a4paper, left=35mm, right=35mm, top=51mm, bottom=17mm
+geometry: a4paper, left=20mm, right=20mm, top=10mm, bottom=15mm, marginparwidth=12mm, marginparsep=4mm
 ---
