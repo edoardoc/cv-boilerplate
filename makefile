@@ -16,4 +16,4 @@ docker-image:
 docker: docker-image
 	docker run --rm \
 	-v $(CURDIR):/data -w /data $(IMAGE) \
-	--template=template.tex --pdf-engine=xelatex -o output.pdf details.yml
+	--template=/data/template.tex --pdf-engine=xelatex --verbose -o output.pdf details.yml

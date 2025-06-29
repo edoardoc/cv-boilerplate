@@ -15,8 +15,15 @@ RUN apt-get update \
     fonts-lmodern \
     fonts-terminus \
     fonts-cmu \
+    fontconfig \
+    ca-certificates \
+    wget \
     entr \
  && rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /usr/share/fonts/truetype/raleway
+COPY fonts/*.ttf /usr/share/fonts/truetype/raleway/
+RUN fc-cache -f -v
 
 WORKDIR /data
 ENTRYPOINT ["pandoc"]

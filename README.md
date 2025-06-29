@@ -84,7 +84,7 @@ Or just use the Makefile shortcut:
 
 ## Available settings
 
-- **`mainfont`**: Hoefler Text is the default, but every font installed on your system should work out of the box thanks to XeTeX.
+- **Font**: Raleway Medium is statically applied in the template. To use a different font, edit `template.tex`.
 - **`fontsize`**: Possible values here are 10pt, 11pt and 12pt.
 - **`lang`**: Sets the main language through the `babel` package. This is important for proper hyphenation, among other things.
 - **`geometry`**: A string that sets the margins through `geometry`. Read [this](https://www.sharelatex.com/learn/Page_size_and_margins) to learn how this package works.
@@ -108,7 +108,16 @@ Or just use the Makefile shortcut:
 - Refer to [pandoc's documentation](http://pandoc.org/MANUAL.html#templates) to learn more about how templates work.
 - If you're not familiar with the YAML syntax, [here](http://learnxinyminutes.com/docs/yaml/)'s a good overview.
 - If you want to edit the template but LaTeX scares you, these [docs](https://www.sharelatex.com/learn/Main_Page) put together by ShareLaTeX cover most of the basics and are surprisingly kind to the beginner.
-- Odds are your question already has an answer on [TeX Stack Exchange](https://www.sharelatex.com/learn/Main_Page). Also, pretty friendly crowd in there.
+-- Odds are your question already has an answer on [TeX Stack Exchange](https://www.sharelatex.com/learn/Main_Page). Also, pretty friendly crowd in there.
+
+## Custom Fonts
+
+To embed Raleway Medium in both local and Docker builds, download the `Raleway-Medium.ttf` file from Google Fonts and place it in the `fonts/` directory:
+
+    wget -O fonts/Raleway-Medium.ttf \
+      https://raw.githubusercontent.com/google/fonts/main/ofl/raleway/Raleway-Medium.ttf
+
+The Docker image copies any `.ttf` in `fonts/` into `/usr/share/fonts/truetype/raleway` and rebuilds the font cache. The template will load Raleway Medium from that location.
 
 ## See also
 

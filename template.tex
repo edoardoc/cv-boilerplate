@@ -47,7 +47,11 @@ $endif$
 % \usepackage{xltxtra} % removed: not present in pandoc/latex image
 % converts LaTeX specials (quotes, dashes etc.) to Unicode
 \defaultfontfeatures{Mapping=tex-text}
-\setmainfont{CMU Sans Serif}
+% Use the installed Raleway Medium font
+\setmainfont[
+  Path=/usr/share/fonts/truetype/raleway/,
+  Extension=.ttf,
+]{Raleway-Medium}
 % (Removed SKILL CLOUD macros)
 
 % MARGIN NOTES
