@@ -13,6 +13,7 @@ RUN apt-get update \
     texlive-lang-greek \
     fonts-texgyre \
     fonts-lmodern \
+    fonts-terminus \
  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /data

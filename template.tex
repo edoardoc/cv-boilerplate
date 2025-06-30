@@ -16,26 +16,48 @@
 \usepackage{multicol}
 \setlength{\columnsep}{-3.5cm}
 
-% Uncomment to suppress page numbers
-% \pagenumbering{gobble}
+% Suppress page numbers
+\pagenumbering{gobble}
 
-% LANGUAGE
+% Header & Footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{$name$}}
+\fancyhead[R]{\small%
+  $for(address)$$address$$sep$ · $endfor$%
+  · $phone$%
+  $if(urls)$ · $for(urls)$\href{http://$urls$}{$urls$}$sep$ · $endfor$$endif$%
+}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[C]{\scriptsize\textit{``Code is like humor. When you have to explain it, it's bad.''}}
+
+% Language setup for XeLaTeX
 %--------------------------------
-% Set the main language
+\usepackage{polyglossia}
 $if(lang)$
-\usepackage[$lang$]{babel}
+\setmainlanguage{$lang$}
 $endif$
 
 % TYPOGRAPHY
 %--------------------------------
 \usepackage{fontspec} 
-\usepackage{xunicode}
+% \usepackage{xunicode}  % removed to avoid ucs/Greek encoding errors
 % \usepackage{xltxtra} % removed: not present in pandoc/latex image
 % converts LaTeX specials (quotes, dashes etc.) to Unicode
 \defaultfontfeatures{Mapping=tex-text}
-\setromanfont [Ligatures={Common}, Numbers={OldStyle}]{$mainfont$}
-% Cool ampersand
-\newcommand{\amper}{{\fontspec[Scale=.95]{$mainfont$}\selectfont\itshape\&}}
+\IfFontExistsTF{Terminus (TTF)}{%
+  \setmainfont [Ligatures={Common}, Numbers={OldStyle}]{Terminus (TTF)}%
+}{%
+  \setmainfont [Ligatures={Common}, Numbers={OldStyle}]{$mainfont$}%
+}
+% Cool ampersand (fallback if Terminus missing)
+\IfFontExistsTF{Terminus (TTF)}{%
+  \newcommand{\amper}{{\fontspec[Scale=.95]{Terminus (TTF)}\selectfont\itshape\&}}%
+}{%
+  \newcommand{\amper}{{\fontspec[Scale=.95]{$mainfont$}\selectfont\itshape\&}}%
+}
 
 % MARGIN NOTES
 %--------------------------------
@@ -107,11 +129,9 @@ $endif$
 
 \section*{Languages, Tools, APIs}
 $if(languages)$
-\begin{itemize}
-    $for(languages)$
-      \item $languages$
-    $endfor$
-\end{itemize}
+\noindent{\small%
+$for(languages)$$languages$$sep$, $endfor$
+}%
 $endif$
 
 % \vfill
