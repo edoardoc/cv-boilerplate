@@ -27,4 +27,3 @@ RUN fc-cache -f -v
 
 WORKDIR /data
 ENTRYPOINT ["pandoc"]
-CMD ["bash"]
