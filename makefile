@@ -28,10 +28,10 @@ docker: docker-image ## build output.pdf
 	-v "$(CURDIR):/data" -w /data $(IMAGE) \
 	--template=/data/template.tex $(FLAGS) --verbose -o /data/output.pdf details.yml
 
-watch-docker: docker-image ## Continously build output.pdf
+watch: docker-image ## Continously build output.pdf
 	@echo "Starting watch mode for files: $(WATCH_FILES)"
 	@echo "Press Ctrl+C to stop watching."
-	@ls $(WATCH_FILES) | entr -cs 'docker run --rm -v "$$(pwd):/data" -w /data $(IMAGE) --template=/data/template.tex $(FLAGS) --verbose -o /data/output.pdf details.yml'
+	@ls $(WATCH_FILES) | entr -cs 'docker run --rm -v "$$(pwd):/data" -w /data $(IMAGE) --template=/data/template.tex $(FLAGS) --verbose -o /data/output.pdf details.yml && open output.pdf'
 
 help: ## Help command
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

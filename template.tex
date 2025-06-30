@@ -118,6 +118,11 @@ $endif$
 
 \vspace{30pt}
 
+$if(intro)$
+{$intro$}\\[.2cm]
+$endif$
+
+
 % optional spoken languages section
 $if(spoken_languages)$
 \section*{Spoken Languages}
@@ -125,6 +130,7 @@ $if(spoken_languages)$
 $for(spoken_languages)$$spoken_languages$$sep$, $endfor$
 \vspace{20pt}
 $endif$
+
 
 \section*{Technical Skills}
 \noindent
